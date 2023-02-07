@@ -1,51 +1,34 @@
 import { useState } from "react";
-import NavBar from "./Grids/NavBar/index";
-import { Button } from "./components/Button";
-import { TitleLogo } from "./components/TitleLogo";
-import { NavItem } from "./components/NavItem";
+import { NavBar } from "./Grids/NavBar/index";
 import { Header } from "./Grids/Header";
-import { Avatar } from "./components/Avatar/avatar";
-import { Text } from "./components/Text";
-import { HeaderText } from "./components/Header-texts/index";
-import { HeaderTop } from "./components/Header-Top";
+import "./index.css";
+import styled from "styled-components";
 
-const textNavItens = [
-  "Página inicial",
-  "Pesquisa",
-  "Explorar",
-  "Reels",
-  "Mensagens",
-  "Notificações",
-  "Criar",
-  "Perfil",
-];
+const Grid = styled.section`
+  position: relative;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: ${(props) => props.templateColumns};
+`;
+
+const DivBody = styled.div`
+  position: relative;
+  height: 100%;
+`;
 
 function App() {
   return (
-    <section style={{ display: "flex", gap: "3rem", padding: "2rem" }}>
-      <NavBar>
-        <TitleLogo />
-        {textNavItens.map((item) => (
-          <NavItem key={item} text={item} />
-        ))}
-      </NavBar>
-      <Header>
-        <HeaderTop>
-          <Avatar />
-          <Text bold>@adatechbr</Text>
-          <Button>Seguindo</Button>
-          <Button>Enviar mensagem</Button>
-          <Button>iconHeader</Button>
-          <Button>...</Button>
-        </HeaderTop>
-        <HeaderText>
-          <Text>211 Publicações</Text>
-          <Text>44 mil Seguidores</Text>
-          <Text>2 Seguindo</Text>
-        </HeaderText>
-      </Header>
-    </section>
+    <Grid templateColumns="20% 80%">
+      <DivBody>
+        <NavBar />
+      </DivBody>
+      <DivBody>
+        <Header />
+      </DivBody>
+    </Grid>
   );
 }
+
+//1h:57
 
 export default App;
