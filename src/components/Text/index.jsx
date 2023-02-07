@@ -1,6 +1,10 @@
-import "./text.css";
+import styled from "styled-components";
+
+const StyleText = styled.span`
+  color: ${(props) => props.color || "#fff"};
+  font-weight: ${(props) => (props.bold ? 900 : "")};
+`;
 
 export const Text = (props) => {
-  const classes = props.bold ? "bold" : "";
-  return <span className={classes}>{props.children}</span>;
+  return <StyleText {...props}>{props.children}</StyleText>;
 };
