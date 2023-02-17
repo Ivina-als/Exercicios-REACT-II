@@ -1,7 +1,7 @@
 import { NavItem } from "../../components/NavItem";
 import { TitleLogo } from "../../components/TitleLogo";
 import instagram from "../../assets/instagram.svg";
-import styled from "styled-components";
+import { NavBarWrapper, Box, MoreBox } from "./S.Nav";
 
 const textNavItens = [
   "Página inicial",
@@ -14,18 +14,6 @@ const textNavItens = [
   "Perfil",
 ];
 
-const NavBarWrapper = styled.aside`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #000;
-  height: 100%;
-  width: calc(20% - 60px);
-  position: fixed;
-  padding: 50px 30px;
-`;
-const Box = styled.div``;
-
 export const NavBar = (props) => {
   return (
     <NavBarWrapper>
@@ -33,13 +21,15 @@ export const NavBar = (props) => {
         <Box>
           <TitleLogo src={instagram} width="50%" />
         </Box>
-        <Box>
+        <Box fontSize="1.2rem" color="#999999">
           {textNavItens.map((item) => (
             <NavItem key={item} text={item} />
           ))}
         </Box>
+        <MoreBox fontSize="1.2rem" color="#999999">
+          <NavItem text="Mais" />
+        </MoreBox>
       </Box>
-      <NavItem text="Mais" />
     </NavBarWrapper>
   );
 };

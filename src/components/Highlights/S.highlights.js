@@ -1,7 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Text } from "../Text";
 
+const HighlightsCursor = css`
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export const Highlights = styled.div`
+  overflow-clip-margin: content-box;
+  overflow: clip;
   width: 80%;
   display: flex;
   justify-content: center;
@@ -10,6 +18,7 @@ export const Highlights = styled.div`
 `;
 
 export const HighlightsItem = styled.div`
+  ${HighlightsCursor}
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -17,6 +26,7 @@ export const HighlightsItem = styled.div`
 `;
 
 export const HighlightsText = styled(Text)`
+  ${HighlightsCursor}
   margin-top: 16px;
   width: 90px;
   overflow: hidden;

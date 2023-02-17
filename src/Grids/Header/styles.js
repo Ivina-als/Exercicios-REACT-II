@@ -7,6 +7,8 @@ export const StyleHeader = styled.div`
   justify-content: center;
   height: 40%;
   color: #fff;
+  overflow-clip-margin: content-box;
+  overflow: clip;
 `;
 
 export const ContainerHeader = styled.div`
@@ -18,7 +20,17 @@ export const Box = styled.div`
   padding: 5px;
 `;
 
+export const Follow = styled.div`
+  display: flex;
+  padding-top: 10px;
+  gap: 3px;
+`;
+
 export const ContainerText = styled.div`
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  padding: 10px 0 0 10px;
   display: flex;
   flex-direction: column;
+  gap: 1px;
 `;

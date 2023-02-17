@@ -7,7 +7,6 @@ export const textCss = css`
 `;
 
 export const StyleText = styled.div`
-  text-align: center;
   ${textCss};
 `;
 
@@ -15,7 +14,6 @@ export const TextLink = styled.a`
   ${textCss};
   text-decoration: none;
   cursor: pointer;
-  padding: 10px;
   color: ${(props) => props.color};
   &:hover {
     text-decoration: underline;
