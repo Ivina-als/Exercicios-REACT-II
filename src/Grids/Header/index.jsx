@@ -34,7 +34,7 @@ export const Header = (props) => {
             <Button
               background=" #1071b1"
               color="black"
-              onClick={() => props.onClickNavigate("singUp")}
+              onClick={() => props.onClickNavigate("login")}
             >
               <Text>Sair</Text>
             </Button>
