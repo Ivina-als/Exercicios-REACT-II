@@ -1,8 +1,4 @@
-import styled from "styled-components";
-
-const StyleNavItem = styled.div`
-  color: #fff;
-`;
+import { StyleNavItem } from "./S.navItem";
 
 export const NavItem = ({ text }) => {
   return <StyleNavItem>{text}</StyleNavItem>;

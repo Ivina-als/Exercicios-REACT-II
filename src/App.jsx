@@ -1,61 +1,18 @@
-import { useState, useEffect } from "react";
-import { NavBar } from "./Grids/NavBar/index";
-import { Header } from "./Grids/Header";
-import {
-  Grid,
-  DivBody,
-  DivSection,
-  GridPhotos,
-  DivPhotos,
-} from "./Grids/S.Grid";
+import { useState } from "react";
 import "./index.css";
-import { Highlights } from "./components/Highlights";
-import { request } from "./request/request";
+import { Home } from "./Pages/Home";
+import { Login } from "./Pages/Login";
+import { SingUp } from "./Pages/SingUp";
 
 function App() {
-  const [photos, setPhotos] = useState([]);
+  const [currentPage, setCurrentPage] = useState("login");
 
-  useEffect(() => {
-    const makeRequest = async () => {
-      const responser = await request("photos");
-      setPhotos(responser);
-      console.log(responser);
-    };
-    makeRequest();
-  }, []);
   return (
-    <Grid templateColumns="20% 80%">
-      <DivBody>
-        <NavBar />
-      </DivBody>
-      <DivSection>
-        <DivBody>
-          <Header />
-        </DivBody>
-        <DivBody>
-          <Highlights />
-        </DivBody>
-        <DivBody>
-          <GridPhotos>
-            {photos.map((photo) => (
-              <DivPhotos key={photo.id}>
-                <img
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
-                  src={photo.urls.small}
-                />
-              </DivPhotos>
-            ))}
-          </GridPhotos>
-        </DivBody>
-      </DivSection>
-    </Grid>
+    <>
+      {currentPage === "login" && <Login onClickNavigate={setCurrentPage} />}
+      {currentPage === "home" && <Home onClickNavigate={setCurrentPage} />}
+      {currentPage === "singUp" && <SingUp onClickNavigate={setCurrentPage} />}
+    </>
   );
 }
-
-//1h:57
-
 export default App;
