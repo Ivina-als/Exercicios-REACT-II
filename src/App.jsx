@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from "react";
+import { useReducer, createContext } from "react";
 import "./index.css";
 import { Home } from "./Pages/Home";
 import { Login } from "./Pages/Login";
@@ -10,7 +10,6 @@ function reducer(state, action) {
       return {
         currentPage: action.payload,
       };
-
     default:
       return state;
   }
@@ -19,6 +18,8 @@ function reducer(state, action) {
 const initialState = {
   currentPage: "login",
 };
+
+export const InstaContext = createContext(initialState);
 
 function App() {
   const [globalState, dispatch] = useReducer(reducer, initialState);
@@ -29,16 +30,20 @@ function App() {
 
   return (
     <>
-      {globalState.currentPage === "login" && (
-        <Login onClickNavigate={handleNavigate} />
-      )}
-      {globalState.currentPage === "home" && (
-        <Home onClickNavigate={handleNavigate} />
-      )}
-      {globalState.currentPage === "singUp" && (
-        <SingUp onClickNavigate={handleNavigate} />
-      )}
+      <InstaContext.Provider value={{ state: globalState }}>
+        {globalState.currentPage === "login" && (
+          <Login onClickNavigate={handleNavigate} />
+        )}
+        {globalState.currentPage === "home" && (
+          <Home onClickNavigate={handleNavigate} />
+        )}
+        {globalState.currentPage === "singUp" && (
+          <SingUp onClickNavigate={handleNavigate} />
+        )}
+      </InstaContext.Provider>
     </>
   );
 }
+
+//1:32h
 export default App;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Form } from "../../components/Form";
 import { BackgroundInputs, CardInputs } from "../S.stylesPages";
 import instagram from "../../assets/instagram.svg";
@@ -6,8 +6,11 @@ import { TitleLogo } from "../../components/TitleLogo";
 import { Button } from "../../components/Button";
 import { DivButtonInputs } from "./S.login";
 import { TextLink } from "../../components/Text/S.text";
+import { InstaContext } from "../../App";
 
 export const Login = (props) => {
+  const state = useContext(InstaContext);
+
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 

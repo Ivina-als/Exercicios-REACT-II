@@ -12,6 +12,7 @@ export const StyleHeader = styled.div`
 `;
 
 export const ContainerHeader = styled.div`
+  align-items: center;
   display: flex;
   padding: 5px;
 `;

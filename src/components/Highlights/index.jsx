@@ -34,7 +34,9 @@ export const Highlights = (props) => {
     <S.Highlights>
       {objHighlights.map((item, index) => (
         <S.HighlightsItem key={index}>
-          <Avatar src={item.img} size="small" />
+          <S.DivHighLigths {...props}>
+            <Avatar src={item.img} size="small" />
+          </S.DivHighLigths>
           <S.HighlightsText>{item.name}</S.HighlightsText>
         </S.HighlightsItem>
       ))}

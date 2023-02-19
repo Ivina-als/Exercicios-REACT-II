@@ -22,12 +22,34 @@ export const Box = styled.div`
   ${defaultProps}
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 10px;
+`;
+
+export const BoxButtons = styled.div`
+  ${defaultProps}
+  height:800px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 export const MoreBox = styled.div`
   ${defaultProps}
   display: flex;
-  align-items: end;
-  height: 100px;
+  gap: 10px;
+  align-items: center;
+  height: 150px;
+`;
+
+export const BoxNav = styled.div`
+  ${defaultProps}
+  display: flex;
+  gap: 10px;
+  align-items: center;
+`;
+
+export const Profile = styled.div`
+  width: 50px;
+  border: 1px solid "white";
+  border-radius: 50%;
 `;

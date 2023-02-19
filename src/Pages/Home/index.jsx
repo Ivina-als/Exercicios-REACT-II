@@ -24,38 +24,40 @@ export const Home = (props) => {
           <Header {...props} />
         </DivBody>
         <DivBody>
-          <Highlights />
+          <Highlights border />
         </DivBody>
         {/*Botões feed*/}
-        <S.DivStateHome>
-          <S.DivButton isActive={activeHome === "feed"}>
-            <Button
-              background="#131313"
-              colorText="#ffff"
-              onClick={() => setActiveHome("feed")}
-            >
-              Publicações
-            </Button>
-          </S.DivButton>
-          <S.DivButton isActive={activeHome === "reels"}>
-            <Button
-              background="#131313"
-              colorText="#ffff"
-              onClick={() => setActiveHome("reels")}
-            >
-              Reels
-            </Button>
-          </S.DivButton>
-          <S.DivButton isActive={activeHome === "marked"}>
-            <Button
-              background="#131313"
-              colorText="#ffff"
-              onClick={() => setActiveHome("marked")}
-            >
-              Marcados
-            </Button>
-          </S.DivButton>
-        </S.DivStateHome>
+        <S.DivButtonsFeed>
+          <S.DivStateHome>
+            <S.DivButton isActive={activeHome === "feed"}>
+              <Button
+                background="#131313"
+                colorText="#ffff"
+                onClick={() => setActiveHome("feed")}
+              >
+                Publicações
+              </Button>
+            </S.DivButton>
+            <S.DivButton isActive={activeHome === "reels"}>
+              <Button
+                background="#131313"
+                colorText="#ffff"
+                onClick={() => setActiveHome("reels")}
+              >
+                Reels
+              </Button>
+            </S.DivButton>
+            <S.DivButton isActive={activeHome === "marked"}>
+              <Button
+                background="#131313"
+                colorText="#ffff"
+                onClick={() => setActiveHome("marked")}
+              >
+                Marcados
+              </Button>
+            </S.DivButton>
+          </S.DivStateHome>
+        </S.DivButtonsFeed>
 
         <DivBody>
           {activeHome === "feed" && <Feed />}

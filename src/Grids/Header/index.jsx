@@ -4,8 +4,14 @@ import { Button } from "../../components/Button";
 import { Text } from "../../components/Text";
 import avatar from "../../assets/ada.png";
 import { TextLink } from "../../components/Text/S.text";
+import { InstaContext } from "../../App";
+import { useContext } from "react";
+import add from "../../assets/add.png";
+import down from "../../assets/downArrow.svg";
+import logout from "../../assets/logout.svg";
 
 export const Header = (props) => {
+  const state = useContext(InstaContext);
   return (
     <S.StyleHeader>
       <Avatar src={avatar} />
@@ -17,25 +23,35 @@ export const Header = (props) => {
           </S.Box>
           <S.Box>
             <Button>
-              <Text color="black">Seguindo</Text>
-            </Button>
-          </S.Box>
-          <S.Box>
-            <Button>
-              <Text color="black">Enviar mensagem</Text>
-            </Button>
-          </S.Box>
-          <S.Box>
-            <Button>
-              <Text>iconHeader</Text>
+              <Text color="black" bold>
+                Seguindo
+              </Text>
             </Button>
           </S.Box>
           <S.Box>
             <Button
-              background=" #1071b1"
-              color="black"
+              style={{ gap: "2px", display: "flex", alignItems: "center" }}
+            >
+              <Text color="black" bold>
+                Enviar mensagem
+              </Text>
+              <img src={down} style={{ width: "10px" }} />
+            </Button>
+          </S.Box>
+          <S.Box>
+            <Button>
+              <Text>
+                <img src={add} style={{ width: "15px" }} />
+              </Text>
+            </Button>
+          </S.Box>
+          <S.Box>
+            <Button
+              style={{ gap: "4px", display: "flex", alignItems: "center" }}
+              background=" #131313"
               onClick={() => props.onClickNavigate("login")}
             >
+              <img src={logout} style={{ width: "25px" }} />
               <Text>Sair</Text>
             </Button>
           </S.Box>
