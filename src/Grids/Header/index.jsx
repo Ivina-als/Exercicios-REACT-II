@@ -4,8 +4,15 @@ import { Button } from "../../components/Button";
 import { Text } from "../../components/Text";
 import avatar from "../../assets/ada.png";
 import { TextLink } from "../../components/Text/S.text";
+import { InstaContext } from "../../App";
+import { useContext } from "react";
+import add from "../../assets/add.png";
+import down from "../../assets/downArrow.svg";
+import logout from "../../assets/logout.svg";
 
-export const Header = (props) => {
+export const Header = () => {
+  const { meuState, meuDispatch } = useContext(InstaContext);
+
   return (
     <S.StyleHeader>
       <Avatar src={avatar} />
@@ -13,29 +20,44 @@ export const Header = (props) => {
       <S.ContainerText>
         <S.ContainerHeader>
           <S.Box>
-            <Text bold>adatechbr</Text>
+            <Text bold>{meuState.user.userName}</Text>
           </S.Box>
           <S.Box>
             <Button>
-              <Text color="black">Seguindo</Text>
-            </Button>
-          </S.Box>
-          <S.Box>
-            <Button>
-              <Text color="black">Enviar mensagem</Text>
-            </Button>
-          </S.Box>
-          <S.Box>
-            <Button>
-              <Text>iconHeader</Text>
+              <Text color="black" bold>
+                Seguindo
+              </Text>
             </Button>
           </S.Box>
           <S.Box>
             <Button
-              background=" #1071b1"
-              color="black"
-              onClick={() => props.onClickNavigate("singUp")}
+              style={{ gap: "2px", display: "flex", alignItems: "center" }}
             >
+              <Text color="black" bold>
+                Enviar mensagem
+              </Text>
+              <S.ImgButtons src={down} width="10px" />
+            </Button>
+          </S.Box>
+          <S.Box>
+            <Button>
+              <Text>
+                <S.ImgButtons src={add} width="15px" />
+              </Text>
+            </Button>
+          </S.Box>
+          <S.Box>
+            <Button
+              style={{ gap: "4px", display: "flex", alignItems: "center" }}
+              background=" #131313"
+              onClick={() =>
+                meuDispatch({
+                  type: "change_current_page",
+                  payload: "login",
+                })
+              }
+            >
+              <S.ImgButtons src={logout} width="25px" />
               <Text>Sair</Text>
             </Button>
           </S.Box>

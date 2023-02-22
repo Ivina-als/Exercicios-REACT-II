@@ -12,6 +12,7 @@ export const StyleHeader = styled.div`
 `;
 
 export const ContainerHeader = styled.div`
+  align-items: center;
   display: flex;
   padding: 5px;
 `;
@@ -33,4 +34,8 @@ export const ContainerText = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1px;
+`;
+
+export const ImgButtons = styled.img`
+  width: ${(props) => props.width};
 `;

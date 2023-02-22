@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const DivDefault = styled.div`
-  padding: 80px;
+  padding: 30px 80px 30px 80px;
 `;
 
 export const BackgroundInputs = styled.section`
@@ -20,4 +20,13 @@ export const CardInputs = styled.div`
   padding: 40px 30px;
   background-color: #252525;
   border-radius: 10px;
+`;
+
+export const ImgDefault = styled.img`
+  position: relative;
+`;
+
+export const DefaultDiv = styled.div`
+  display: flex;
+  justify-content: center;
 `;

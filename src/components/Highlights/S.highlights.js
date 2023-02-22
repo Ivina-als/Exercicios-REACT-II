@@ -13,7 +13,7 @@ export const Highlights = styled.div`
   width: 80%;
   display: flex;
   justify-content: center;
-  margin: 60px 0;
+  margin: 60px 60px 60px 20px;
   gap: 30px;
 `;
 
@@ -35,4 +35,14 @@ export const HighlightsText = styled(Text)`
   white-space: nowrap;
 `;
 
-//cor da ada #a4f54f
+export const DivHighLigths = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: ${(props) => (props.border ? "1px solid #80808038" : "")};
+  background-color: #131313;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 98px;
+  height: 98px;
+`;
