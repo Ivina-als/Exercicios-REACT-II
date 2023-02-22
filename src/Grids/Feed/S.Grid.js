@@ -36,3 +36,18 @@ export const DivPhotos = styled.div`
   justify-content: center;
   height: 250px;
 `;
+
+export const Pin = styled.img`
+  width: 15px;
+  display: ${(props) => props.pin};
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 10px;
+`;
+export const ImgFeed = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+`;

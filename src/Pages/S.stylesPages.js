@@ -21,3 +21,12 @@ export const CardInputs = styled.div`
   background-color: #252525;
   border-radius: 10px;
 `;
+
+export const ImgDefault = styled.img`
+  position: relative;
+`;
+
+export const DefaultDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`;

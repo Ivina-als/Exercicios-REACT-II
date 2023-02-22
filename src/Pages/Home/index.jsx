@@ -9,9 +9,11 @@ import * as S from "./S.home";
 import { Button } from "../../components/Button";
 import { Reels } from "../Reels";
 import { Marked } from "../Marked";
+import grid from "../../assets/grid.svg";
+import reels from "../../assets/reel.png";
+import marked from "../../assets/marked2.svg";
 
-export const Home = (props) => {
-  //estado do feed da home
+export const Home = () => {
   const [activeHome, setActiveHome] = useState("feed");
 
   return (
@@ -21,7 +23,7 @@ export const Home = (props) => {
       </DivBody>
       <DivSection>
         <DivBody>
-          <Header {...props} />
+          <Header />
         </DivBody>
         <DivBody>
           <Highlights border />
@@ -30,6 +32,7 @@ export const Home = (props) => {
         <S.DivButtonsFeed>
           <S.DivStateHome>
             <S.DivButton isActive={activeHome === "feed"}>
+              <S.IconFeed src={grid} width="10px" />
               <Button
                 background="#131313"
                 colorText="#ffff"
@@ -39,6 +42,7 @@ export const Home = (props) => {
               </Button>
             </S.DivButton>
             <S.DivButton isActive={activeHome === "reels"}>
+              <S.IconFeed src={reels} width="12px" />
               <Button
                 background="#131313"
                 colorText="#ffff"
@@ -48,6 +52,7 @@ export const Home = (props) => {
               </Button>
             </S.DivButton>
             <S.DivButton isActive={activeHome === "marked"}>
+              <S.IconFeed src={marked} width="13px" />
               <Button
                 background="#131313"
                 colorText="#ffff"

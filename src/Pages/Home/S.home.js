@@ -17,3 +17,7 @@ export const DivStateHome = styled.div`
 export const DivButton = styled.div`
   border-top: 1px solid ${(props) => (props.isActive ? "white" : "#131313")};
 `;
+
+export const IconFeed = styled.img`
+  width: ${(props) => props.width};
+`;

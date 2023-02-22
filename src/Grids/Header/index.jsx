@@ -10,8 +10,9 @@ import add from "../../assets/add.png";
 import down from "../../assets/downArrow.svg";
 import logout from "../../assets/logout.svg";
 
-export const Header = (props) => {
-  const state = useContext(InstaContext);
+export const Header = () => {
+  const { meuState, meuDispatch } = useContext(InstaContext);
+
   return (
     <S.StyleHeader>
       <Avatar src={avatar} />
@@ -19,7 +20,7 @@ export const Header = (props) => {
       <S.ContainerText>
         <S.ContainerHeader>
           <S.Box>
-            <Text bold>adatechbr</Text>
+            <Text bold>{meuState.user.userName}</Text>
           </S.Box>
           <S.Box>
             <Button>
@@ -35,13 +36,13 @@ export const Header = (props) => {
               <Text color="black" bold>
                 Enviar mensagem
               </Text>
-              <img src={down} style={{ width: "10px" }} />
+              <S.ImgButtons src={down} width="10px" />
             </Button>
           </S.Box>
           <S.Box>
             <Button>
               <Text>
-                <img src={add} style={{ width: "15px" }} />
+                <S.ImgButtons src={add} width="15px" />
               </Text>
             </Button>
           </S.Box>
@@ -49,9 +50,14 @@ export const Header = (props) => {
             <Button
               style={{ gap: "4px", display: "flex", alignItems: "center" }}
               background=" #131313"
-              onClick={() => props.onClickNavigate("login")}
+              onClick={() =>
+                meuDispatch({
+                  type: "change_current_page",
+                  payload: "login",
+                })
+              }
             >
-              <img src={logout} style={{ width: "25px" }} />
+              <S.ImgButtons src={logout} width="25px" />
               <Text>Sair</Text>
             </Button>
           </S.Box>

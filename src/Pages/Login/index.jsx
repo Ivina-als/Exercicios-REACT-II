@@ -8,8 +8,8 @@ import { DivButtonInputs } from "./S.login";
 import { TextLink } from "../../components/Text/S.text";
 import { InstaContext } from "../../App";
 
-export const Login = (props) => {
-  const state = useContext(InstaContext);
+export const Login = () => {
+  const { meuState, meuDispatch } = useContext(InstaContext);
 
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -36,13 +36,29 @@ export const Login = (props) => {
           <Button
             background=" #1071b1"
             width="100%"
-            onClick={() => props.onClickNavigate("home")}
+            onClick={() => {
+              if (email && pass) {
+                meuDispatch({
+                  type: "change_current_page",
+                  payload: "home",
+                });
+                meuDispatch({ type: "add_user", payload: email });
+              }
+            }}
           >
             Entrar
           </Button>
         </DivButtonInputs>
 
-        <TextLink size="small" onClick={() => props.onClickNavigate("singUp")}>
+        <TextLink
+          size="small"
+          onClick={() =>
+            meuDispatch({
+              type: "change_current_page",
+              payload: "singUp",
+            })
+          }
+        >
           Não está cadastrado?
         </TextLink>
       </CardInputs>

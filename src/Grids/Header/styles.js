@@ -35,3 +35,7 @@ export const ContainerText = styled.div`
   flex-direction: column;
   gap: 1px;
 `;
+
+export const ImgButtons = styled.img`
+  width: ${(props) => props.width};
+`;

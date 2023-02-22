@@ -1,12 +1,13 @@
-import { DivPhotos, GridPhotos } from "./S.Grid";
+import { DivPhotos, GridPhotos, Pin, ImgFeed } from "./S.Grid";
 import { request } from "../../request/request";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Text } from "../../components/Text";
-import * as S from "../../Pages/Home/S.home";
-import { Button } from "../../components/Button";
+import pin from "../../assets/pin.svg";
+import { InstaContext } from "../../App";
 
 export const Feed = (props) => {
-  const [photos, setPhotos] = useState([]);
+  const state = useContext(InstaContext);
+  console.log(state);
   const [isLoading, setIsLoading] = useState(false); //loading.io/css/
   const [hasError, setHasError] = useState(false);
 
@@ -15,7 +16,7 @@ export const Feed = (props) => {
       try {
         setIsLoading(true);
         const responser = await request("photos");
-        setPhotos(responser);
+        state.meuDispatch({ type: "add_photo", payload: responser });
       } catch (error) {
         setHasError(true);
       } finally {
@@ -25,20 +26,20 @@ export const Feed = (props) => {
     makeRequest();
   }, []);
 
+  const handlePhoto = (imageId) => {
+    state.meuDispatch({ type: "add_image_fetch", payload: imageId });
+    state.meuDispatch({ type: "change_current_page", payload: "fullScreen" });
+  };
+
   return (
     <GridPhotos>
       {isLoading && <Text>Carregando...</Text>}
       {hasError && <Text>Epa, deu ruim!</Text>}
-      {photos.map((photo) => (
-        <DivPhotos key={photo.id}>
-          <img
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-            src={photo.urls.small}
-          />
+      {state.meuState.user.photos.map((photo, index) => (
+        <DivPhotos key={photo.id} onClick={() => handlePhoto(photo.id)}>
+          <ImgFeed src={photo.urls.small} />
+
+          {index <= 2 && <Pin src={pin} />}
         </DivPhotos>
       ))}
     </GridPhotos>
